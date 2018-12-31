@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle><ion-icon name="menu"></ion-icon></button>
+    <div menuToggle  item-right>
+      <button ion-button (click)="pin()"><ion-icon name="ios-pin"></ion-icon></button>
+      <button ion-button (click)="mute()" ><ion-icon name="md-volume-off"></ion-icon></button>
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+
+<!-- <button ion-button block large color="secondary"> -->
+<button  class="button3 ripple">Set a beacon</button>
+<div class="spacer" data-componentid="spacer3" style="height: 15px;"></div>
+<div class="row icon-row">
+<div class="col text-center">
+  <button id="menu-button10" class="buttonbasic button1 ripple" (click)= "mock_myLocation()">My Location
+  <br>
+  <br>
+  <ion-icon name="md-locate"></ion-icon>
+  </button>
+  </div>
+<div class="col text-center">
+  <button id="menu-button13" class="buttonbasic button1 ripple" (click)= "mock_nearbyMarkers()">Nearby Markers
+  <br>
+  <br>
+  <ion-icon name="ios-pin"></ion-icon>
+  </button>
+  </div>
+  </div>
+<div class="row icon-row">
+<div class="col text-center">
+  <button  id="cortana" class="buttonbasic button1 buttonc ripple" (click) = "startConverting()">Cortana</button>
+  </div>
+  </div>
+<div class="row icon-row">
+<div class="col text-center">
+  <button id="menu-button9" class="buttonbasic button1 ripple" (click)= "mock_aroundMe()">Around me
+  <br>
+  <br>
+  <ion-icon name="md-move"></ion-icon>
+  </button>
+  </div>
+<div class="col text-center">
+  <button class="buttonbasic button1 ripple" (click)= "mock_aheadOfMe()">Ahead of me
+  <br>
+  <br>
+  <ion-icon name="md-wifi"></ion-icon>
+  </button>
+  </div>
+  </div>
+  <div class="spacer" data-componentid="spacer3" style="height: 20px;"></div>
+  <ion-card>
+  <div class="list card" id="result" data-componentid="card21">
+        <!-- <p id = "result" style="margin-top:0px;color:#000000;">I'm listenning...</p> -->
+      </div>
+    
+  </ion-card>
+<footer>
+  <button  class="button3 ripple">History</button>
+</footer>
+</ion-content>
+
