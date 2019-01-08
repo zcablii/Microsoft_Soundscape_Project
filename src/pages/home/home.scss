@@ -1,9 +1,8 @@
 page-home {
-ion-card{
+  ion-card{
     display: flex;
     flex-direction: column;
-    height: 30% !important;
-
+    height: 10% !important;
   }
   .card {
   border-radius: 10px;
@@ -22,13 +21,25 @@ ion-card{
     -webkit-align-items: center;
   }
 
+  .iconsize{
+    font-size: 50px;
+  }
+  .resize{
+    position: relative;
+    width:150px;
+    margin:margin-left;
+    margin-top:50vh;
+  }
+
+
+
   .buttonbasic {
     display: inline-block;
     text-decoration: none;
     color:#FFF;
     background-color:#538fbe;
     border:1px solid #2d6898;
-    padding: 35px;
+    padding: 25px;
     text-align: center;
     display: inline-block;
     font-size: 16px;
@@ -56,6 +67,9 @@ ion-card{
     //box-shadow: 0px 6px 0px #2b638f, 0px 3px 15px rgba(0,0,0,.4), inset 0px 1px 0px rgba(255,255,255,.3), inset 0px 0px 3px rgba(255,255,255,.5);
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   }
+
+
+
   .button1 {border-radius: 50%;}
   .buttonc {
     margin-left:auto;
@@ -63,6 +77,7 @@ ion-card{
     display:block;
     margin-top:0%;
     margin-bottom:0%;
+    font-size: 25px;
   }
   .button2 {
     border: 2px solid #435d8c ;
@@ -93,11 +108,11 @@ ion-card{
     background-repeat:no-repeat;
     overflow: hidden;
     color: white;
-    padding: 40px;
-    font-size:20px;
+    padding: 35px;
+    font-size:25px;
     text-align: center;
-    height:100px;
-    width:350px;
+    height:50px;
+    width:335px;
     border-radius: 12px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 
