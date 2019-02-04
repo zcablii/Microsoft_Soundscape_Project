@@ -82,5 +82,9 @@
     <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
     <plugin name="cordova-plugin-ionic-webview" spec="^2.0.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
+    <plugin name="cordova-plugin-geolocation" spec="4.0.1" />
+    <plugin name="cordova-plugin-3dtouch" spec="1.3.5" />
+    <plugin name="cordova-plugin-tts" spec="0.2.3" />
+    <plugin name="cordova-plugin-speechrecognition" spec="1.2.0" />
     <engine name="ios" spec="^4.5.5" />
 </widget>
