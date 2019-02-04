@@ -6,6 +6,7 @@ require('dotenv').config();
  
 export interface IWindow extends Window {
   webkitSpeechRecognition: any;
+  SpeechRecognition: any;
 }
 
 
@@ -333,14 +334,15 @@ static textResult: string;
   HomePage.isRuning=!HomePage.isRuning;
   var speechRecognizer;
 
-  const {webkitSpeechRecognition} : IWindow = <IWindow>window;
       if (this.platform.is('cordova')) {
-         speechRecognizer = new webkitSpeechRecognition.SpeechRecognition();
+        const {SpeechRecognition} : IWindow = <IWindow>window;
+         speechRecognizer = new SpeechRecognition();
       } else{
         if(!('webkitSpeechRecognition' in window)){
           document.getElementById('result').innerHTML = 'Your browser is not supported. If google chrome, please upgrade!';
         }
         else{
+            const {webkitSpeechRecognition} : IWindow = <IWindow>window;
            speechRecognizer = new webkitSpeechRecognition();
         }
       }
