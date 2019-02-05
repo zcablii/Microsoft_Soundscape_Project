@@ -1,12 +1,15 @@
 import { Component } from '@angular/core';
-// import { TextToSpeech } from '@ionic-native/text-to-speech';
-import {NavController, Platform} from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 // import { Geolocation } from '@ionic-native/geolocation';
 require('dotenv').config();
- 
+
+
+
+
+
+
 export interface IWindow extends Window {
   webkitSpeechRecognition: any;
-  SpeechRecognition: any;
 }
 
 
@@ -22,12 +25,14 @@ static isRuning: any;
 static textResult: string;
 
 
-  constructor(public navCtrl: NavController, public platform: Platform) {
+  constructor(public navCtrl: NavController) {
     HomePage.isRuning = false;
     HomePage.textResult = '';
   }
 
- 
+
+
+
 // document.getElementById('result').innerHTML = latLng;
 
   // var options = {
@@ -62,7 +67,7 @@ static textResult: string;
 //       }, (err, res) => {
 //         if (err) {
 //           console.log(err);
-//         } 
+//         }
 //         else {
 //           // var results = JSON.stringify(res);
 //           var temp = '';
@@ -72,29 +77,31 @@ static textResult: string;
 //             temp = temp+'   '+name;
 //             // document.getElementById('result').innerHTML = temp;
 //            }
-          
+
 //         }
 // });
 
- 
+
+
  public getLuisIntent() {
+
     var request = require('request');
     var querystring = require('querystring');
     // endpoint URL
     var endpoint =
         'https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/';
 
-    // Set the LUIS_APP_ID environment variable 
+    // Set the LUIS_APP_ID environment variable
     // to df67dcdb-c37d-46af-88e1-8b97951ca1c2, which is the ID
-    // of a public sample application.    
+    // of a public sample application.
     var luisAppId = 'd265e869-0407-4c6f-8520-3de7ef662231';
 
     // Read LUIS key from environment file ".env"
-    // You can use the authoring key instead of the endpoint key. 
+    // You can use the authoring key instead of the endpoint key.
   // The authoring key allows 1000 endpoint queries a month.
     var endpointKey = '88c2a8145a08422daf5e94ef519cf516';
 
-    // Create query string 
+    // Create query string
     var queryParams = {
         "verbose":  true,
         "q": HomePage.textResult,
@@ -148,42 +155,14 @@ static textResult: string;
               if (err) {
                 document.getElementById('result').innerHTML = 'inner err';
                 console.log(err);
-              } 
+              }
               else {
                 // var results = JSON.stringify(res);
                 var temp = '';
                 for (var i = 0; i <5; i++) {
-                  var lat2 = parseFloat(`${res.body.results[i].geometry.location.lat}`);
-                  var lng2 = parseFloat(`${res.body.results[i].geometry.location.lng}`);
-                  const earthRadius = 6371000; //meters
-                  var dLat = (lat2-lat) * Math.PI / 180;
-                  var dLng = (lng2-lng) * Math.PI / 180;
-                  var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
-                  Math.cos(lat* Math.PI / 180) * Math.cos(lat2* Math.PI / 180) *
-                  Math.sin(dLng/2) * Math.sin(dLng/2);
-                  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-                  var dist =  Math.round(2 *earthRadius * c);
-                  var dir='';
-                  if (dLng >0 && Math.abs(dLat/dLng)<0.3827)
-                    dir = 'East';
-                  else if(dLng <0 && Math.abs(dLat/dLng)<0.3827)
-                    dir = 'West';
-                  else if(dLat >0 && Math.abs(dLng/dLat)<0.3827)
-                    dir = 'North';
-                  else if(dLat <0 && Math.abs(dLng/dLat)<0.3827)
-                    dir = 'South';
-                  else if(dLat>0 && dLng>0)
-                    dir = 'North East';
-                  else if(dLat>0 && dLng<0)
-                    dir = 'North West';
-                  else if(dLat<0 && dLng>0)
-                    dir = 'South East';
-                  else
-                    dir = 'South West';
                   if(res.body.results[i]!=null){
-                  var name = `${res.body.results[i].name}`+": "+dist+' meters'+' at '+dir;
-                  temp = temp+'   '+name+'.';
-                  // this.tts.speak('Hello World');
+                  var name = `${res.body.results[i].name}`+''+`${res.body.results[i].geometry.location.lat}`+''+`${res.body.results[i].geometry.location.lng}`;
+                  temp = temp+'   '+name;
                   document.getElementById('result').innerHTML = temp;
 
                   }
@@ -191,13 +170,8 @@ static textResult: string;
                   //   document.getElementById('result').innerHTML = 'none';
                   // }
                  }
-
-                  
-                  var msg = new SpeechSynthesisUtterance(temp);
-                  window.speechSynthesis.speak(msg);
-
                  // document.getElementById('result').innerHTML = url;
-                
+
               }
       });
       }
@@ -252,18 +226,18 @@ static textResult: string;
                 else if(resIntent == 'direction'){
                   var querystringNearby = require('querystring');
                   // endpoint URL
-                  
-                  // Set the LUIS_APP_ID environment variable 
+
+                  // Set the LUIS_APP_ID environment variable
                   // to df67dcdb-c37d-46af-88e1-8b97951ca1c2, which is the ID
-                  // of a public sample application.    
+                  // of a public sample application.
                   var placeAppId = '760964ed-8eb2-4680-8d3d-f00a50cff515';
 
                   // Read LUIS key from environment file ".env"
-                  // You can use the authoring key instead of the endpoint key. 
+                  // You can use the authoring key instead of the endpoint key.
                 // The authoring key allows 1000 endpoint queries a month.
                   var endpointKey = '88c2a8145a08422daf5e94ef519cf516';
 
-                  // Create query string 
+                  // Create query string
                   var placeQueryParams = {
                       "verbose":  true,
                       "q": ` Query: ${data.query}`,
@@ -314,7 +288,7 @@ static textResult: string;
                               else{
                                 document.getElementById('result').innerHTML = 'place none';
                               }
-                             
+
                           }
                       });
 
@@ -324,7 +298,7 @@ static textResult: string;
                   noneAudio.src = '../assets/audio/mock_none.mp3';
                   noneAudio.play();
                 }
-               
+
             }
         });
 }
@@ -332,21 +306,10 @@ static textResult: string;
 
  public startConverting () {
   HomePage.isRuning=!HomePage.isRuning;
-  var speechRecognizer;
 
-      if (this.platform.is('cordova')) {
-        const {SpeechRecognition} : IWindow = <IWindow>window;
-         speechRecognizer = new SpeechRecognition();
-      } else{
-        if(!('webkitSpeechRecognition' in window)){
-          document.getElementById('result').innerHTML = 'Your browser is not supported. If google chrome, please upgrade!';
-        }
-        else{
-            const {webkitSpeechRecognition} : IWindow = <IWindow>window;
-           speechRecognizer = new webkitSpeechRecognition();
-        }
-      }
-    
+    if('webkitSpeechRecognition' in window){
+      const {webkitSpeechRecognition} : IWindow = <IWindow>window;
+      const speechRecognizer = new webkitSpeechRecognition();
       // var speechRecognizer = new SpeechRecognition(); // To Device
       speechRecognizer.continuous = true;
       speechRecognizer.interimResults = true;
@@ -359,7 +322,6 @@ static textResult: string;
       else{
         HomePage.textResult = document.getElementById('result').innerHTML;
         document.getElementById('cortana').innerHTML = 'Cortana';
-        speechRecognizer.stop();
         // document.getElementById('result').innerHTML = HomePage.textResult;//test
         this.getLuisIntent();
       }
@@ -382,13 +344,17 @@ static textResult: string;
          document.getElementById('result').innerHTML = finalTranscripts + interimTranscripts ;
       };
       speechRecognizer.onerror = function (event) {
-      }; 
+      };
+    }else{
+       document.getElementById('result').innerHTML = 'Your browser is not supported. If google chrome, please upgrade!';
+    }
   }
 
 
 
-
+  isPlayed: boolean = false;
   mock_myLocation(){
+    this.isPlayed = true;
     let myLocationAudio =new Audio();
     myLocationAudio.src = '../assets/audio/mock_myLocation.mp3';
     myLocationAudio.play();
@@ -413,14 +379,9 @@ static textResult: string;
       }
     }
   }
+
   mock_aroundMe(){
-  var modal = document.getElementById('AheadOfMeModal');
-    modal.style.display = "block";
-    window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    }
+
     var latLng;
 
     navigator.geolocation.getCurrentPosition(storePosition, handleLocationError, {timeout:30000, enableHighAccuracy:true});
@@ -439,6 +400,8 @@ static textResult: string;
         document.getElementById('result').innerHTML = 'ERR: user denied';
           // ...user said no
       }
+
+
     }
 
     function storePosition(position) {
@@ -461,55 +424,32 @@ static textResult: string;
             if (err) {
               document.getElementById('result').innerHTML = 'err';
               console.log(err);
-            } 
+            }
             else {
               // var results = JSON.stringify(res);
               var temp = '';
-                for (var i = 0; i <5; i++) {
-                  var lat2 = parseFloat(`${res.body.results[i].geometry.location.lat}`);
-                  var lng2 = parseFloat(`${res.body.results[i].geometry.location.lng}`);
-                  const earthRadius = 6371000; //meters
-                  var dLat = (lat2-lat) * Math.PI / 180;
-                  var dLng = (lng2-lng) * Math.PI / 180;
-                  var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
-                  Math.cos(lat* Math.PI / 180) * Math.cos(lat2* Math.PI / 180) *
-                  Math.sin(dLng/2) * Math.sin(dLng/2);
-                  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-                  var dist =  Math.round(2 *earthRadius * c);
-                  var dir='';
-                  if (dLng >0 && Math.abs(dLat/dLng)<0.3827)
-                    dir = 'East';
-                  else if(dLng <0 && Math.abs(dLat/dLng)<0.3827)
-                    dir = 'West';
-                  else if(dLat >0 && Math.abs(dLng/dLat)<0.3827)
-                    dir = 'North';
-                  else if(dLat <0 && Math.abs(dLng/dLat)<0.3827)
-                    dir = 'South';
-                  else if(dLat>0 && dLng>0)
-                    dir = 'North East';
-                  else if(dLat>0 && dLng<0)
-                    dir = 'North West';
-                  else if(dLat<0 && dLng>0)
-                    dir = 'South East';
-                  else
-                    dir = 'South West';
-                  if(res.body.results[i]!=null){
-                  var name = `${res.body.results[i].name}`+": "+dist+' meters'+' at '+dir;
-                  temp = temp+'   '+name+'.';
-                  // this.tts.speak('Hello World');
-                  document.getElementById('result').innerHTML = temp;
+              for (var i = 0; i <5; i++) {
+                if(res.body.results[i]!=null){
+                var name = `${res.body.results[i].name}`+''+`${res.body.results[i].geometry.location.lat}`+''+`${res.body.results[i].geometry.location.lng}`;
+                temp = temp+'   '+name;
+                document.getElementById('result').innerHTML = temp;
 
-                  }
-                  // else{
-                  //   document.getElementById('result').innerHTML = 'none';
-                  // }
-                 }
-                  var msg = new SpeechSynthesisUtterance(temp);
-                  window.speechSynthesis.speak(msg);
+                }
+                // else{
+                //   document.getElementById('result').innerHTML = 'none';
+                // }
+               }
                // document.getElementById('result').innerHTML = url;
-              
+
             }
     });
+    }
+    var modal = document.getElementById('AroundMeModal');
+    modal.style.display = "block";
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
     }
   }
 
@@ -526,5 +466,16 @@ static textResult: string;
     }
   }
 
+  helpaudio(){
+    let aheadOfMeAudio =new Audio();
+    aheadOfMeAudio.src = '../assets/audio/mock_help.mp3';
+    aheadOfMeAudio.play();
+  }
+  bleep:Audio;
+  mute(){
+    if  (this.isPlayed == true){
+      stop();
+    }
+  }
 
 }

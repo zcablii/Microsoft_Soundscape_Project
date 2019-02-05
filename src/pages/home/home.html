@@ -1,17 +1,13 @@
-<ion-header>
+<ion-header >
   <ion-navbar color="primary">
-  
-    <div menuToggle  item-right>
-      <button ion-button (click)="mute()" ><ion-icon name="md-volume-off"></ion-icon></button>
-    </div>
+    <ion-title>Soundscape V2</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
 
-
 <!-- <button ion-button block large color="secondary"> -->
-<button  class="button3 ripple buttonc">Set a beacon</button>
+<button  class="button3 ripple buttonc" (click)= "helpaudio()">Instructions</button>
 <div class="spacer" data-componentid="spacer3" style="height: 15px;"></div>
 <div class="row icon-row">
 <div class="col text-center">
@@ -65,7 +61,7 @@
   </div>
   <div class="spacer" data-componentid="spacer3" style="height: 20px;"></div>
   <footer>
-   <button class="button3 ripple buttonc">History</button>
+   <button class="button3 ripple buttonc" >History</button>
   </footer>
   <ion-card>
   <div class="list card" id="result" data-componentid="card21">
@@ -86,7 +82,7 @@
     <ion-col col-3>Ahead Of Me</ion-col>
   </ion-row>
   </ion-toolbar> -->
-    <!-- <ion-icon name="home">Cortana</ion-icon></button> -->
+  	<!-- <ion-icon name="home">Cortana</ion-icon></button> -->
 <!-- <ion-grid>
   <ion-row>
     <ion-col col-3>My Location</ion-col>
