@@ -4,6 +4,7 @@ page-home {
     flex-direction: column;
     height: 10% !important;
   }
+
   .card {
   border-radius: 10px;
   overflow: hidden;
@@ -31,8 +32,12 @@ page-home {
     margin-top:50vh;
   }
 
-
-
+  .fontsize1{
+    font-size: 16px;
+  }
+  .fontsize2{
+    font-size: 13px;
+  }
   .buttonbasic {
     display: inline-block;
     text-decoration: none;
@@ -42,7 +47,7 @@ page-home {
     padding: 25px;
     text-align: center;
     display: inline-block;
-    font-size: 16px;
+
     margin: 4px 2px;
 
 
@@ -80,7 +85,7 @@ page-home {
     font-size: 25px;
   }
   .button2 {
-    border: 2px solid #435d8c ;
+    border: 2px solid #3e6fa5 ;
     background-color: white;
     color: #FFF;
     padding: 14px 28px;
@@ -104,7 +109,7 @@ page-home {
 
   .button3 {
     background-color: #538fbe;
-    border: 1px solid #2d6898 ;
+    border: 1px solid #3e6fa5 ;
     background-repeat:no-repeat;
     overflow: hidden;
     color: white;
@@ -117,6 +122,8 @@ page-home {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 
   }
+
+
 
     /* The Modal (background) */
   .modal {
@@ -147,6 +154,8 @@ page-home {
 
   .title{
     text-align: center;
+    
+
   }
 
 }

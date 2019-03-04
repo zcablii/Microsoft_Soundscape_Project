@@ -58,7 +58,7 @@
     }
     
     if (!rate) {
-        rate = 1.0;
+        rate = 1;
     }
     
     AVSpeechUtterance* utterance = [[AVSpeechUtterance new] initWithString:text];

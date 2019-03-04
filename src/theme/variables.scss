@@ -34,7 +34,7 @@ $app-direction: ltr;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #435d8c,
+  primary:    #e3e7ed,
   secondary:  #6495ed,
   danger:     #f53d3d,
   light:      #f4f4f4,
@@ -48,8 +48,8 @@ $colors: (
 
 $tabs-md-background: color($colors, secondary);
 
-$background-ios-color: #435d8c;
-$background-md-color: #435d8c;
+$background-ios-color: #e3e7ed;
+$background-md-color: #e3e7ed;
 
 // App Material Design Variables
 // --------------------------------------------------

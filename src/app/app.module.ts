@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
+import { SpeechRecognition } from '@ionic-native/speech-recognition';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { TextToSpeech } from '@ionic-native/text-to-speech';
 
@@ -25,9 +26,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage
   ],
   providers: [
-    TextToSpeech,
     StatusBar,
     SplashScreen,
+    TextToSpeech,
+    SpeechRecognition,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

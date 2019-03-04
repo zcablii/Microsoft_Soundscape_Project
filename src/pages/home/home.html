@@ -1,67 +1,51 @@
 <ion-header >
   <ion-navbar color="primary">
-    <ion-title>Soundscape V2</ion-title>
+    <ion-title>Soundscape Simulator</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
 
 <!-- <button ion-button block large color="secondary"> -->
-<button  class="button3 ripple buttonc" (click)= "helpaudio()">Instructions</button>
-<div class="spacer" data-componentid="spacer3" style="height: 15px;"></div>
+<button class="button3 ripple buttonc" (click)="helpaudio()">Instructions</button>
+<div class="spacer" data-componentid="spacer3" style="height: 15px;" (click)="helpaudio()"></div>
 <div class="row icon-row">
 <div class="col text-center">
-  <button id="menu-button10" class="buttonbasic button1 ripple resize" (click)= "mock_myLocation()">
+  <button onclick id="menu-button10" class="buttonbasic button1 ripple resize fontsize1" (click)= "mock_myLocation()">My Location
   <ion-icon name="md-locate" class="iconsize"></ion-icon>
   </button>
-  <div id="LocationModal" class="modal">
-    <div class="modal-content">
-      <p>My Location</p>
-      </div>
-  </div>
 </div>
 
 <div class="col text-center">
-  <button id="menu-button13" class="buttonbasic button1 ripple resize" (click)= "mock_nearbyMarkers()">
+  <button id="menu-button13" class="buttonbasic button1 ripple resize fontsize2" (click)= "mock_nearbyMarkers()">Nearby Markers
   <ion-icon name="ios-pin" class="iconsize"></ion-icon>
   </button>
   <div id="MarkersModal" class="modal">
-    <div class="modal-content">
-      <p>Nearby Markers</p>
-      </div>
     </div>
   </div>
 </div>
 <div class="row icon-row">
 <div class="col text-center">
-  <button  id="cortana" class="buttonbasic button1 buttonc ripple resize" (click) = "startConverting()">Cortana</button>
+  <button  id="cortana" class="buttonbasic button1 buttonc ripple resize " (click) = "startConverting()">Cortana</button>
   </div>
   </div>
 <div class="row icon-row">
 <div class="col text-center">
-  <button id="menu-button9" class="buttonbasic button1 ripple resize" (click)= "mock_aroundMe()">
+  <button id="menu-button9" class="buttonbasic button1 ripple resize fontsize1" (click)= "mock_aroundMe()">Around Me
   <ion-icon name="md-move" class="iconsize"></ion-icon>
   </button>
-  <div id="AroundMeModal" class="modal">
-    <div class="modal-content">
-      <p>Around Me</p>
-      </div>
-    </div>
   </div>
 <div class="col text-center">
-  <button class="buttonbasic button1 ripple resize" (click)= "mock_aheadOfMe()">
+  <button class="buttonbasic button1 ripple resize fontsize1" (click)= "mock_aheadOfMe()">Ahead Of Me
   <ion-icon name="md-wifi" class="iconsize"></ion-icon>
   </button>
   <div id="AheadOfMeModal" class="modal">
-    <div class="modal-content">
-      <p>Ahead Of Me</p>
-      </div>
     </div>
   </div>
   </div>
   <div class="spacer" data-componentid="spacer3" style="height: 20px;"></div>
   <footer>
-   <button class="button3 ripple buttonc" >History</button>
+   <button class="button3 ripple buttonc" (click)= "recommend()">Recommendation</button>
   </footer>
   <ion-card>
   <div class="list card" id="result" data-componentid="card21">
