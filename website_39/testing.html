@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel='icon' href='img/team39animatedfavicon.ico' type='image/x-icon' >
+    <title>Testing-SoundScape Cortana Project</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="css/agency.min.css" rel="stylesheet">
+
+  </head>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="index.html">SoundScape Cortana Project</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="requirements.html">Requirements</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="research.html">Research</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="hci.html">HCI</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="design.html">Design</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="testing.html">Testing</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                      <a class="nav-link js-scroll-trigger" href="testing.html">Testing</a>
+                    </li> -->
+
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="evaluation.html">Evaluation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="management.html">Management</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="masthead">
+        <div class="container">
+        <div class="intro-text">
+            <div class="intro-lead-in">AI/DEEP LEARNING WITH CORTANA</div>
+            <div class="intro-heading text-uppercase">Testing</div>
+        </div>
+        </div>
+    </header>
+
+    <section id="architecture">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading text-uppercase">Testing Strategy </h2>
+                </div>
+
+            </div>
+            <div class = "text-left">
+                <p>
+                    To ensure that the key functionalities work perfectly we used Test-Driven-Development
+                    (TDD) which was the most recommendable software development process.  Therefore, our
+                    testing process is comprised of Unit & Integration Testing, Compatibility Testing,
+                    Responsive  Design Testing, Security Testing, Automated Testing and User Acceptance Testing.
+                </p>
+
+            </div>
+
+
+        </div>
+    </section>
+
+    <section class="bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading text-uppercase">Unit and Integration Testing</h2>
+                </div>
+            </div>
+            <div>
+                <p>
+                    We divided the project into several pieces. Each of our developers
+                    works on separate functions and features and finally assemble and integrate
+                    all pieces together. So, we implement test-driven development. We did unit
+                    and integration testing during developing the App.
+                </p>
+                <p>
+                    Unit testing makes sure each fundamental function in the App behaves correctly,
+                    so errors will not accumulate. Also, if the App goes wrong, we can easily and
+                    fast identify the bug. This is especially useful when the team tries to integrate
+                    all features together. After putting everything together, we did integration testing
+                    to ensure the whole system acts properly.
+                </p>
+                <p>
+                    We use localhost port 8100 as a server host to develop and test the basic functions.
+                </p>
+            </div>
+            <hr>
+            <div>
+                <h4><b><font color="#4286f4">Unit test on APIs.</font></b></h4>
+                <p>
+                    When using google map API, all requests sent from localhost are denied by Google API
+                    server. To allow testing on the correctness of the result of the API return result, we
+                    added an extension on the browser. All of the team members are using Chrome as a
+                    testing tool, so we add the Access-Control-Allow-Origin[2] plugin in Chrome. Which can
+                    automatically add to response header rule - 'Access-Control-Allow-Origin: *'
+                    when making an API request.
+                </p>
+            </div>
+            <hr>
+            <div>
+                <h4><b><font color="#4286f4">Integration testing on App</font></b></h4>
+                <div div class="col-lg-12 text-center">
+                    <img width="250" src="img/testing/devapp.jpeg">
+                </div>
+                <p>
+                    We did integration testing in two steps. Firstly, we used ionic devapp to have a genal
+                    test because it is a fast way. After we implement all key features, we use Xcode to
+                    test directly on target devices. We use ionic devapp as main integration testing tool.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading text-uppercase">Compatibility Testing </h2>
+                </div>
+            </div>
+            <div class = "text-left">
+                <p>
+                    The aim of Compatibility and Response design testing was to ensure that our
+                    software can be deployed to the needed devices. We tested our application on
+                    several iPhone devices and on Xcode’s Simulators so that we ensure that it is
+                    compatible with different models.
+                </p>
+                <p>
+                    The results of our testing:
+                </p>
+
+                <div class="row text-left">
+                    <table class="table table-striped table-bordered">
+                        <tr>
+                            <td ><b>Device </b></td>
+                            <td><b>Compatibility </b></td>
+                            <td ><b>Result </b></td>
+                        </tr>
+                        <tr>
+
+                            <td >iPhone 6</td>
+                            <td>Tested on Xcode’s Simulator & different iPhone devices</td>
+                            <td >Successful</td>
+                        </tr>
+                        <tr>
+
+                            <td >iPhone 6s</td>
+                            <td>Tested on Xcode’s Simulator</td>
+                            <td >Successful</td>
+                        </tr>
+                        <tr>
+                            <td >iPhone 7</td>
+                            <td>Tested on Xcode’s Simulator</td>
+                            <td >Successful</td>
+                        </tr>
+                        <tr>
+                            <td >iPhone 7 plus</td>
+                            <td>Tested on Xcode’s Simulator</td>
+                            <td >Successful</td>
+                        </tr>
+                        <tr>
+                            <td >iPhone 8</td>
+                            <td>Tested on Xcode’s Simulator</td>
+                            <td >Successful</td>
+                        </tr>
+                        <tr>
+                            <td >iPhone 8 plus</td>
+                            <td>Tested on Xcode’s Simulator</td>
+                            <td >Successful</td>
+                        </tr>
+                        <tr>
+                            <td >iPhone X</td>
+                            <td>Tested on Xcode’s Simulator</td>
+                            <td >Successful</td>
+                        </tr>
+                    </table>
+                </div>
+                <p>
+                    Screenshots from tests on iPhone Devices:
+                </p>
+            </div>
+            <div>
+                <img width="30%" src="img/testing/i6t.png">
+                <img width="30%" src="img/testing/i6.png">
+                <img width="30%" src="img/testing/i6s.png">
+                <img width="30%" src="img/testing/i7.png">
+                <img width="30%" src="img/testing/i7p.png">
+                <img width="30%" src="img/testing/i8.png">
+                <img width="30%" src="img/testing/i8p.png">
+                <img width="30%" src="img/testing/ix.png">
+
+            </div>
+        </div>
+    </section>
+
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading text-uppercase">Performance </h2>
+                </div>
+            </div>
+            <div>
+                <h4><b><font color="#4286f4">Speech recognition accuracy testing</font></b></h4>
+                <p>
+                    For each test case, speak 10 sentences with 121 words. The accuracy is calculated
+                    by the total number of words correctly recognised / total words. Before the test,
+                    we spoke close to the microphone in a very quiet place and selected sentences and
+                    words so that the accuracy is 100%.
+                </p>
+                <table class="table table-striped table-bordered">
+                    <thead class="thead-dark">
+                    <tr>
+                        <td ><b>Scenarios</b> </td>
+                        <td><b>Accuracy of speak close to microphone (%)</b></td>
+                        <td ><b>Accuracy of not peak close to microphone (%)</b></td>
+                        <td class="requirement_type"><b>Average (%)</b></td>
+                    </tr>
+                    </thead>
+                    <tr>
+
+                        <td >Cafe</td>
+                        <td>82.6</td>
+                        <td >33.3</td>
+                        <td class="requirement_type">58</td>
+                    </tr>
+                    <tr>
+
+                        <td >Bus station</td>
+                        <td >64.5</td>
+                        <td>20.1</td>
+                        <td class="requirement_type">42.3</td>
+                    </tr>
+                    <tr>
+                        <td >Campus</td>
+                        <td>89.3</td>
+                        <td >66.1</td>
+                        <td class="requirement_type">77.7</td>
+                    </tr>
+                    <tr>
+                        <td >Oxford Street</td>
+                        <td>57</td>
+                        <td >15.7</td>
+                        <td class="requirement_type">36.4</td>
+                    </tr>
+                    <tr>
+                        <td >Park</td>
+                        <td>95</td>
+                        <td >66.1</td>
+                        <td class="requirement_type">80.6</td>
+                    </tr>
+                </table>
+                <hr>
+                <h4><b><font color="#4286f4">Language understanding accuracy testing</font></b></h4>
+                <p>
+                    We prepared 68 sentences. The accuracy is calculated by the total number of
+                    sentences comprehended correctly/ total sentences. During the test, we spoke close to
+                    the microphone in a very quiet place and make sure the accuracy of speech recognition
+                    is 100% so that the uncertainty of speech recognition will not affect this test.
+                </p>
+                <p>
+                    After testing, the got the overall accuracy is 69%, which is not very reliable.
+                    By analysing our test cases, we found that when the sentence is short and simple with
+                    a clear grammar without too many unnecessary words, the performance will be much better.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading text-uppercase">Automated Testing </h2>
+                </div>
+            </div>
+            <div>
+                <p>
+                    With automated testing, that time is cut drastically. The work for automated testers is
+                    instead spent coding the tests and making improvements to these tests repeatedly as
+                    adjustments are needed. Once the test is complete, however, automated testing allows for
+                    the recycled use of tests so that they do not have to go through this whole process again.[3]
+                </p>
+                <p>
+                    We used automated testing in two parts, language understanding API calls and distance
+                    measurement. For both parts, we wrote two separate testing scripts.
+                </p>
+            </div>
+            <div class="text-center">
+                <img  width="90%" height="90%" src="img/testing/autotest.png">
+            </div>
+
+        </div>
+    </section>
+
+    <section >
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading text-uppercase">User Acceptance Testing</h2>
+                </div>
+            </div>
+            <div>
+                <p>
+                    After we finalise our app, we invited some users to do some test and complete a survey.
+                    We asked users to complete the following tasks:
+                </p>
+                <P><b>1.Without any hint, try to use the app to get information about your surrounding building.</b></P>
+                <P><b>2.Use the voice assistance only to interact with the app at different places.</b></P>
+                <P><b>3.Try to use the app without looking at the screen</b></P>
+                <P><b>4.Can you predict the functions of these buttons?</b></P>
+                <p>The survey contains the following questions:</p>
+                <P><b>1.Happy with the UI?</b></P>
+                <P><b>2.How long did you finish the first task?</b></P>
+                <P><b>3.Is Voice assistance easy to use? Please rank out of 10.</b></P>
+                <P><b>4.Do you satisfy with the recommendation result?</b></P>
+                <P><b>5.How do you feel about the app? Rank.</b></P>
+                <P><b>6.Any suggestions?</b></P>
+            </div>
+            <div>
+                <p>
+                    We invite 12 users among our classmates, and we ask them to complete the tasks and survey questions abouve.
+                    The result indicates that, most of users (11/12) are satisfied with our UI, and half of them mentioned that
+                    the UI is clean and simple. Half of them (6/12) saied that they are happy to use the voice assistance instead of
+                    clicking buttons. 8 of them can predict  functions of all buttons without preknowledge. After some tries, all of them can use voice assistance function without looking at the screen. But only 2 of them are satisfied with
+                    the result of recommendation. All the users are happy with the app, the average marks they gave for this app is
+                    7.8 out of 10.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4">
+            <span class="copyright">UCL Team 39 © 2018 - All Rights Reserved</span>
+            </div>
+        </div>
+        </div>
+    </footer>
+
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Contact form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/agency.min.js"></script>
+
+    </body>
+
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel='icon' href='img/team39animatedfavicon.ico' type='image/x-icon' >
+    <title>Reports-SoundScape Cortana Project</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="css/agency.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="index.html">SoundScape Cortana Project</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav text-uppercase ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="requirements.html">Requirements</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="research.html">Research</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="hci.html">HCI</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="design.html">Design</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="testing.html">Testing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="evaluation.html">Evaluation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="management.html">Management</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Header -->
+<header class="masthead">
+    <div class="container">
+        <div class="intro-text">
+            <div class="intro-lead-in">AI/DEEP LEARNING WITH CORTANA</div>
+            <div class="intro-heading text-uppercase">Design</div>
+        </div>
+    </div>
+</header>
+
+
+<section id="architecture">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading text-uppercase">System Architecture Diagram </h2>
+                <img class="img-fluid" src="img/prototype/app_arch.png" alt="">
+            </div>
+            <p>There are 5 key parts in this system.<br/><b>
+                1. Voice recognition<br/>
+                2. Language understanding<br/>
+                3. Data storage <br/>
+                4. Place query <br/>
+                5. Text to speech<br/><br/></b>
+                A brief explanation of the  architecture diagram:<br/>
+                User speak to the app via microphone, then Voice recognition API transform the voice
+                into text. Then the text is passed to Language understanding API by http request and
+                then receive and analyse the response to find out the intent. After that, store the
+                query questions, matched intent and time into database. If the intent is to query nearby
+                places, the device will use GPS service to get  latitude and longitude of user’s location
+                and then make request to google map API to ask for nearby places. If the intent is to ask
+                for recommendation, then the app will look into database to make recommendation. For
+                example, if the user ask for ‘nearby shops’ most frequent in the recent 7 days, then the
+                app may recommend the stores around of the user. In the end, all the results will be
+                transformed from text to speech using ionic ‘text-to-speech’ plugin, then the uses can
+                hear about the response from speakers or earphones.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading text-uppercase">Design patterns </h2>
+            </div>
+        <div>
+            <p>
+            <h4>Abstract factory</h4>
+            We created an interface of Window speech recognition without specifying their concrete classes.
+            </p>
+            <p>
+            <h4><br/>Bridge</h4>
+            We used ionic framework to allow frontend and backend vary independently. But they are connected by configure files.
+            </p>
+            <p>
+            <h4><br/>Singleton</h4>
+            The HomePage class has only one instance, and provide a global point of access to it.
+            </p>
+            <p>
+            <h4><br/>Servant</h4>
+            We defined some frequently called helper functions inside HomePage class. They provide  static methods to reduce duplication.
+            </p>
+            <p>
+            <h4><br/>State</h4>
+            A variable isRuning is defined as a static variable. The variable alter its value when the HomePage object internal state changes.
+            </p>
+
+        </div>
+        </div>
+    </div>
+</section>
+
+<section >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading text-uppercase">Data Storage </h2>
+				<p>The database is needed for ‘recommendation’ feature. The structure of the database we used is very simple.</p>
+
+				<table class="table table-striped table-bordered">
+                    <tr >
+                        <td width="35%">recom</td>
+                    </tr>
+                    <tr>
+
+                        <td >ID (INTEGER)<br/>query (VARCHAR(255))<br/>intent (VARCHAR(25))<br/>time DATE</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading text-uppercase">Implementation of Key Functionality </h2>
+            </div>
+        </div>
+        <div>
+            <div>
+                <h3><font color="#4286f4">Speech to text feature</font></h3>
+                <p>We implemented “speech to text” function with Mozilla Web Speech API. Actually, there are different Speech APIs available online such as Microsoft Speech API and Google Speech API, but I decided to use Mozilla Web Speech API because it is more reliable and easier to use. With this function, if I click the ‘Cortana’ button, the app will start to record the voice. Then it will translate the recorded voice to text. Because the app is in developing and testing state, the converted text will be displayed on the screen.
+                </p>
+                <img src="img/prototype/speech_code.png">
+            </div>
+            <hr>
+            <div class="gap-10"></div>
+            <div>
+                <h3><font color="#4286f4">Language understanding feature</font></h3>
+                <p>We implemented language understanding feature. We used Microsoft Language Understanding Service (LUIS) as the back end for this language understanding part of our app. A cloud-based LUIS app is created by uploading a .json file in which I defined the intent and entities. Then we train the app on LUIS account dashboard. After lots of inputs and training, we published the app and get the authoring key and endpoint key. Here is the dashboard of LUIS.
+                </p>
+                <img src="img/prototype/LUIS_board.png">
+            </div>
+            <hr>
+            <div class="gap-10"></div>
+            <div>
+                <h3><font color="#4286f4">Combine “speech to text” with “language understanding”</font></h3>
+                <p>It is a difficult part, but we managed to connect speech to text function with language understanding function in the end. The mechanism is, when a user speaks to the app, the app can firstly transfer the voice to a text string using speech API, and then pass the string to the LUIS using LUIS API with HTTP request. And then receive HTTP response to find out the intent. Finally, according to the type of intent, call corresponding functions. To be noticed, the HTTP response returns a json file. This received json file has to be analysed to get the intent of the speech. Here is main part of code which implements this feature.
+                </p>
+                <img src="img/prototype/combine_code.png">
+            </div>
+            <hr>
+            <div class="gap-10"></div>
+            <div>
+                <h3><font color="#4286f4">Google Map Places API and GPS Service</font></h3>
+                <p>To get information about nearby places, I used GPS service and google map places API. Here is some code which made HTTP request to the API server and an example returned JSON file response.
+                </p>
+                <p>For place distance, we use Manhattan Distance [4] instead of distance between two points of navigation route. And I used algorithm for calculating distance between two points on a sphere surface.</p>
+                <img width="40%"src="img/prototype/gps.png">
+                <img width="40%"src="img/prototype/places_json.png">
+            </div>
+            <hr>
+            <div class="gap-10"></div>
+            <div>
+                <h3><font color="#4286f4">Text to Speech</font></h3>
+                <p>Since our target users are bland people, the App should interact with users by voice. So, ‘text to speech’ is the key function of our App.
+                    I used ionic text-to-speech plugin to implement this function. The main code is shown below:<br/>
+                    <i><b>
+                    import { TextToSpeech } from '@ionic-native/text-to-speech'; <br/>
+                    constructor(tts: TextToSpeech…) {…}<br/>
+                    this.tts.speak({text: msg, locale: 'en-GB', rate: 1.7})<br/>
+                    .then(function () { alert('success'); },<br/>
+                    function (reason) {alert(reason); });<br/>
+                    </b></i>
+                    Since this tts plugin is not working on Cordova platform, it brings inconvenient during development phase. So when I develop the App on Mac by browser, I replace the code by the following:<br/>
+                    <i><b>
+                        var msg = new SpeechSynthesisUtterance(temp);  <br/>    window.speechSynthesis.speak(msg);<br/>
+                        </b></i>
+                    But at finial testing and release phase, I restored the code to make sure it is working on target devices (iPhones).
+                </p>
+            </div>
+            <hr>
+            <div class="gap-10"></div>
+            <div>
+                <h3><font color="#4286f4">SQLite database for Ionic app and recommendation</font></h3>
+                <p>The database is needed for ‘recommendation’ feature. I tried to use Azure cloud database to connect with ionic App, but there are lots of problems when I trying to do this, so I switched to an alternative way, which is ionic plugin SQLite database. The structure of the database table is very simple, the code which creates the database and table is shown below.</p>
+
+                <img width="70%" src="img/prototype/db_create.png">
+                <p>The following codes gives example to insert data and make query to the database.The recommendation is made base on the information in the database, e.g. if the user ask for ‘nearby shops’ most frequent in the recent 7 days, then the app may recommend the stores around of the user.
+                </p>
+
+                <img width="45%" src="img/prototype/db_insert.png">
+                <img width="45%" src="img/prototype/db_query.png">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4">
+                <span class="copyright">UCL Team 39 © 2018 - All Rights Reserved</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Contact form JavaScript -->
+<script src="js/jqBootstrapValidation.js"></script>
+<script src="js/contact_me.js"></script>
+
+<!-- Custom scripts for this template -->
+<script src="js/agency.min.js"></script>
+
+</body>
+
+</html>

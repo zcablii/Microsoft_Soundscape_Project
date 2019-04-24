@@ -1,7 +1,0 @@
-{
-  "name": "try",
-  "integrations": {
-    "cordova": {}
-  },
-  "type": "ionic-angular"
-}
